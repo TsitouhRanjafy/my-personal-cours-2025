@@ -31,3 +31,7 @@ NestJS suit une structure de projet bien définie qui aide à organiser votre co
 - test/: Testez des fichiers et des configurations pour tester votre application.
 
 **`Note 100%`**
+
+## Controllers
+
+Controllers are modules or components responsible for handling and responding to incoming requests from clients, such as web browsers or API consumers
