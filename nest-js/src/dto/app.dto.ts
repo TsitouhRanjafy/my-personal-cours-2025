@@ -1,3 +1,7 @@
-export interface AnswerDto {
+interface AnswerDto {
     answer: string;
+}
+
+export {
+    AnswerDto
 }

@@ -44,7 +44,17 @@ responsable du traitement des requêtes HTTP entrantes et de la génération des
 param: pour transmettre des valeurs dynamique au serveur, ex: /users/:id
 query: pour envoyé des donnée suplementaire ex: /search?q=query
 
+> [!NOTE]
+>  You can use query params if the params are optional. It is never a good idea to create optional param routes (disagreements agreed). Both serve the same purpose, but having them as the query params makes it more understandable for debugging and fellow developers.
+
 ## Handling Request and Responses
 
 The Request and Response objects are key compnents of handling `HTTP` responses. These objects are used to interact with the incoming request data and prepare the response data that your Ntasj.js application sneds back to the client.
+
+**`Note 80%`**
+
+## Service
+
+`nest g service sum-service`
+
 
