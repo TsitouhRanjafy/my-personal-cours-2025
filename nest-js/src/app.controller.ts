@@ -1,15 +1,14 @@
 import { Controller, Get, HttpCode, Post, Query, Redirect } from '@nestjs/common';
 import { AppService } from './app.service';
 import { SumServiceService } from './sum-service/sum-service.service';
-import { CatsService } from './cats/cats.service';
 import { StatusCodes } from 'http-status-codes';
+
 
 @Controller()
 export class AppController {
   constructor(
     private readonly appService: AppService,
     private readonly sumService: SumServiceService,
-    private readonly catsService: CatsService
   ) {}
 
 
