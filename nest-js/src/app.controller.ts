@@ -1,36 +1,22 @@
-import { Body, Controller, Get, Post, Query, Req, Res } from '@nestjs/common';
+import { Controller, Get, HttpCode, Post, Query, Redirect } from '@nestjs/common';
 import { AppService } from './app.service';
-import { AnswerDto } from './dto/app.dto';
-import { Request, Response } from 'express';
 import { SumServiceService } from './sum-service/sum-service.service';
-
+import { CatsService } from './cats/cats.service';
+import { StatusCodes } from 'http-status-codes';
 
 @Controller()
 export class AppController {
   constructor(
     private readonly appService: AppService,
-    private readonly sumService: SumServiceService
+    private readonly sumService: SumServiceService,
+    private readonly catsService: CatsService
   ) {}
 
-  @Get()
-  getHello(@Req() req: Request,@Res() res: Response){
-    console.log(req.headers);
-    res.status(200).json({message: 'Hello World!'})
-  }
 
+  // facultatif param
   @Get('/hello')
   sayHello(@Query('name') name?: string): string {
     return this.appService.getHello(name?? 'unknow');
-  }
-
-  @Get('/askquestion')
-  askQuestion(@Query('question') question: string): string{
-    return this.appService.askQuestion(question);
-  }
-
-  @Post('/answer')
-  answer(@Body() answerDto: Required<AnswerDto>): AnswerDto{
-    return answerDto
   }
 
   @Get('/sum')
@@ -39,6 +25,20 @@ export class AppController {
     @Query('num2') b: number
   ): number {
     return this.sumService.getSum(a,b);
+  }
+
+  @Post('/new/cats')
+  @HttpCode(StatusCodes.CREATED)
+  create(){
+    return `This action adds a new cat`;
+  }
+
+  @Get('/nest/docs')
+  @Redirect('https://docs.nestjs.com/controllers',StatusCodes.MOVED_TEMPORARILY)
+  getDocs(@Query('version') version: string){
+    if (version === 'google') {
+      return { url: 'https://www.google.com' }
+    }
   }
 }
 
