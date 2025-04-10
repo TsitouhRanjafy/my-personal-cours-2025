@@ -34,9 +34,15 @@ NestJS suit une structure de projet bien définie qui aide à organiser votre co
 
 ## Controllers
 
-Controllers are modules or components responsible for handling and responding to incoming requests from clients, such as web browsers or API consumers
+Controllers are modules or components responsible for handling and responding to incoming requests from clients, such as web browsers or API consumers. 
+Valider les donnée entrée, invoquer les services ou la logique métier et de renvoyer les réponses.
+@Controllers() decorator
+responsable du traitement des requêtes HTTP entrantes et de la génération des réponses appropriées.
 
 ## Route Parameters and Query Strings
+
+param: pour transmettre des valeurs dynamique au serveur, ex: /users/:id
+query: pour envoyé des donnée suplementaire ex: /search?q=query
 
 ## Handling Request and Responses
 
