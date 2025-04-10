@@ -38,4 +38,7 @@ Controllers are modules or components responsible for handling and responding to
 
 ## Route Parameters and Query Strings
 
+## Handling Request and Responses
+
+The Request and Response objects are key compnents of handling `HTTP` responses. These objects are used to interact with the incoming request data and prepare the response data that your Ntasj.js application sneds back to the client.
 
