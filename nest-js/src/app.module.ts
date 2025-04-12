@@ -1,12 +1,23 @@
-import { Module } from '@nestjs/common';
+import { MiddlewareConsumer, Module, NestModule, RequestMethod } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { SumServiceService } from './sum-service/sum-service.service';
+import { LoggerMiddleware } from './middleware/logger.middleware';
 import { UsersModule } from './users/users.module';
+import { UsersController } from './users/users.controller';
 
 @Module({
-  imports: [UsersModule],
   controllers: [AppController],
-  providers: [AppService, SumServiceService],
+  providers: [AppService],
+  imports: [UsersModule],
 })
-export class AppModule {}
+export class AppModule implements NestModule{
+  async configure(consumer: MiddlewareConsumer) {
+    consumer
+    .apply(LoggerMiddleware)
+    .exclude(
+      {path: 'users',method: RequestMethod.GET},
+      {path: 'users',method: RequestMethod.POST}
+    )
+    .forRoutes(UsersController)
+  } 
+}
