@@ -18,7 +18,17 @@ export class UsersController {
   }
 
   @Delete()
-  deleteUser(){
-    // 
+  async deleteUser(id: number){
+    try {
+      const response = await this.usersService.delete(id)
+      return response;
+    } catch (error) {
+      throw new HttpException({
+        status: HttpStatus.NOT_IMPLEMENTED,
+        error: 'This is a custom message'
+      },HttpStatus.NOT_IMPLEMENTED,{
+        cause: error
+      })
+    }
   }
 }

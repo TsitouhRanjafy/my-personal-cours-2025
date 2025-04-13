@@ -1,6 +1,7 @@
-import { Controller, Get, HttpCode, Post, Query, Redirect } from '@nestjs/common';
+import { Body, Controller, ForbiddenException, Get, HttpCode, Post, Query, Redirect, UseFilters } from '@nestjs/common';
 import { AppService } from './app.service';
 import { StatusCodes } from 'http-status-codes';
+import { HttpExceptionFilter } from './filters/http-exception.filter';
 
 
 @Controller()
@@ -9,6 +10,11 @@ export class AppController {
     private readonly appService: AppService,
   ) {}
 
+  @Post()
+  @UseFilters(new HttpExceptionFilter)
+  async save(){
+    throw new ForbiddenException()
+  }
 
   // facultatif param
   @Get('/hello')

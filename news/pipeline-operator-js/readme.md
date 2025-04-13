@@ -39,4 +39,8 @@
     ...
 ```
 
+build et start maintenant:
+```bash
+    npm run build && npm run start
+```
 

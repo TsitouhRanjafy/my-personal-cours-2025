@@ -12,4 +12,10 @@ export class UsersService {
   findAll() {
     return this.user;
   }
+
+  delete(id:number){
+    return new Promise((resolve,reject) => {
+      resolve('This method Not Implementhed')
+    })
+  }
 }
