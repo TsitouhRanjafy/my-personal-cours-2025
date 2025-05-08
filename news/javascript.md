@@ -8,4 +8,8 @@
 
 - [Most Used Design Patterns in Angular: Making Your Code Smarter](https://medium.com/@satvatiyasin/most-used-design-patterns-in-angular-making-your-code-smarter-3031035f4d76)
 
+- Tracking your project with [APITable](https://github.com/apitable/apitable)
+
+- [How Senior Engineers Think Differently](https://levelup.gitconnected.com/how-senior-engineers-think-differently-10-mental-models-you-need-cfb25eda4d7e)
+
 
